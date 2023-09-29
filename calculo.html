@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manipulación DOM</title>
+  </head>
+  <body>
+    <form action="" id="form">
+      <input type="text" id="calculo1" placeholder="escribe algo aqui" />
+      <input type="text" id="calculo2" placeholder="escribe algo aqui" />
+      <button id="btnCalcular">Calcular</button>
+      <!--<button id="btnCalcular" onclick="btnOnClick()">Calcular</button>-->
+      <!--onclic escucha un clic sobre el boton y ejecuta una función-->
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+      const form = document.querySelector("#form");
+      const input1 = document.querySelector("#calculo1");
+      const input2 = document.querySelector("#calculo2");
+      const btn = document.querySelector("#btnCalcular");
+      const result = document.querySelector("#result");
+
+      //btn.addEventListener("evento", "funcion a ejecutar"), la funcion a ejecutar se coloca sin parentesis
+      //btn.addEventListener("click", btnOnClick)
+      
+      function sumarInputsValues(event) {
+        //console.log(event)
+        //En este caso event me muestra las propiedades relacionadas al evento que ejecuto la funcion, es decir el evento "submit"
+        event.preventDefault();
+        let sumaInputs = parseInt(input1.value) + parseInt(input2.value);
+        return (result.innerHTML = `El resultado es: ${sumaInputs}`);
+      }
+
+      form.addEventListener("submit", sumarInputsValues);
+    </script>
+  </body>
+</html>
